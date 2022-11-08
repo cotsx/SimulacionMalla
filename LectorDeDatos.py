@@ -7,12 +7,15 @@ def leer_ramos(archivo):
     print(ramos_list[1:])
     ramosDict = dict()
 
-    for nombre ,sigla, prob, prereq in ramos_list[1:]:
+    for nombre ,sigla, prob, creditos, prereq in ramos_list[1:]:
         #sigla, prob, prereq = csv_ramos[i]
         print(sigla +" "+ prob +" "+ prereq)
-        prob = float(prob)
+        prob = prob.split(" ")
+        creditos = int(creditos)
+        for i in range(len(prob)):
+            prob[i] = float(prob[i])
         prereq = prereq.split()
-        ramo = sim.Ramo(sigla, prob, prereq)
+        ramo = sim.Ramo(sigla, prob, prereq, creditos)
         ramosDict[ramo.sigla] = ramo
     
     f.close()

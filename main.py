@@ -2,7 +2,7 @@ import SimulacionMalla as sim
 import LectorDeDatos as lector
 import csv
 
-ramosDict = lector.leer_ramos('RamosDePrueba1.csv')
+ramosDict = lector.leer_ramos('RamosDePrueba2.csv')
 malla = lector.leer_malla('MallaDePrueba1.csv',ramosDict)
 
 estudiante = sim.Estudiante(malla,ramosDict)
