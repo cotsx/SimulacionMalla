@@ -17,7 +17,7 @@ class Ramo:
         return random.random() <= self.prob[vtr-1]
 
 class Estudiante:
-    def __init__(self, malla, ramosDict, maxcreditos = float('inf')):
+    def __init__(self, malla, ramosDict, maxcreditos = float('inf'), maxvtr=float('inf')):
         self.malla = malla
         self.ramosDict = ramosDict
         self.semestre = 0
@@ -55,7 +55,8 @@ class Estudiante:
                     self.por_aprobar.remove(ramo)
                 else:
                     #print("El estudiante reprueba")
-                    pass
+                    if self.info_ramos[ramo.sigla].vtr>=maxvtr:
+                        return -1
         return self.semestre
 
 class InfoRE:
