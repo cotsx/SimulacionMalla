@@ -24,6 +24,7 @@ class Estudiante:
         self.info_ramos = {}
         self.por_aprobar = set()
         self.maxcreditos = maxcreditos
+        self.maxvtr=maxvtr
         for sigla in ramosDict:
             self.info_ramos[sigla] = InfoRE()
         for s in malla:
@@ -55,7 +56,7 @@ class Estudiante:
                     self.por_aprobar.remove(ramo)
                 else:
                     #print("El estudiante reprueba")
-                    if self.info_ramos[ramo.sigla].vtr>=maxvtr:
+                    if self.info_ramos[ramo.sigla].vtr>=self.maxvtr:
                         return -1
         return self.semestre
 
