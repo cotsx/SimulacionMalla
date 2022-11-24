@@ -57,8 +57,8 @@ class Estudiante:
                 else:
                     #print("El estudiante reprueba")
                     if self.info_ramos[ramo.sigla].vtr>=self.maxvtr:
-                        return -1
-        return self.semestre
+                        return (False, self.semestre)
+        return (True, self.semestre)
 
 class InfoRE:
     def __init__(self, vtr=0, aprobado=False):

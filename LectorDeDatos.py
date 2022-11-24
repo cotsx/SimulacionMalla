@@ -29,7 +29,8 @@ def leer_malla(archivo, ramosDict):
     for semestre in csv_malla:
         ramos = set()
         for sigla in semestre[1:]:
-            ramos.add(ramosDict[sigla])
+            if sigla!="":
+                ramos.add(ramosDict[sigla])
         malla.append(ramos)
         
     f.close()
